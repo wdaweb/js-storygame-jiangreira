@@ -1,0 +1,312 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Story</title>
+    <link rel="stylesheet" href="plugs/sweetalert2.min.css" />
+    <script src="plugs/sweetalert2.all.min.js"></script>
+    <script src="plugs/jquery-3.4.1.min.js"></script>
+    <style>
+      body {
+        font-family: "微軟正黑體";
+        height: 100vh;
+        text-align: center;
+      }
+      #btn1 {
+        background: teal;
+        width: 400px;
+        height: 100px;
+        margin: 10% auto;
+        line-height: 100px;
+        font-size: 4rem;
+        color: white;
+
+        border-radius: 20px;
+        border: 5px yellow;
+      }
+      #btn1:hover {
+        box-shadow: 10px 15px 50px black;
+        background: hotpink;
+      }
+      .footer {
+        position: absolute;
+        bottom: 5px;
+        left:40%;
+        right:40%;
+        font-size: 32px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="btn1">開始</div>
+    <div class="footer">reirajiang © 2020</div>
+    <script>
+      $("#btn1").click(function() {
+        $("#btn1").hide();
+        entername();
+      });
+
+      var name = "";
+      //   entername()
+      function entername() {
+        Swal.fire({
+          title: "嘿嘿你要叫甚麼名字呢?",
+          input: "text",
+          inputValue: "過客不留名的",
+          showLoaderOnConfirm: true,
+          confirmButtonText: "我取好了",
+          confirmButtonColor: "CornflowerBlue",
+          cancelButtonText: "略過",
+          caccelButtonColor: "CornflowerBlue",
+          imageUrl: "img/13.jpg",
+          imageHeight: 200,
+          showCancelButton: true,
+          allowOutsideClick: false
+        }).then(function(result) {
+          if (result.dismiss === "cancel") {
+            name = "過客";
+            Swal.fire({
+              title: `不是吧真的不留名?`,
+              text: `那你就叫"${name}"吧`,
+              allowOutsideClick: false,
+              imageUrl: "img/02.jpg",
+              imageHeight: 200
+            }).then(game());
+          } else {
+            name = result.value;
+            Swal.fire({
+              title: `來吧!${name}！`,
+              allowOutsideClick: false,
+              imageUrl: "img/01.jpg",
+              imageHeight: 200
+            }).then(game());
+          }
+        });
+      }
+      //   game();
+      function game() {
+        let story;
+        Swal.fire({
+          title: `嘿!${name},我們走吧`,
+          confirmButtonText: "浮夢一生 走吧!",
+          cancelButtonText: "我還是飄遊雲海好了",
+          showCancelButton: true,
+          allowOutsideClick: false,
+          imageUrl: "img/03.jpg",
+          imageHeight: 200,
+          cancelButtonColor: "red"
+        }).then(result => {
+          if (result.dismiss === "cancel") {
+            Swal.fire({
+              title: `不~你忍心離我而去嗎`,
+              confirmButtonText: "沒錯",
+              confirmButtonColor: "red",
+              allowOutsideClick: false,
+              imageUrl: "img/04.jpg",
+              imageHeight: 300
+            }).then(result => {
+              refresh();
+            });
+          } else {
+            Swal.fire({
+              title: `那就來吧`,
+              allowOutsideClick: false,
+              imageUrl: "img/05.jpg",
+              imageHeight: 200
+            }).then(function() {
+              Swal.fire({
+                title: "常識題-1",
+                text: "莎莉是基還是鴨",
+                confirmButtonText: "肯德雞",
+                cancelButtonText: "燒臘鴨",
+                showCancelButton: true,
+                allowOutsideClick: false,
+                imageUrl: "img/sali.png",
+                imageHeight: 300,
+                confirmButtonColor: "Crimson",
+                cancelButtonColor: "Crimson"
+              }).then(result => {
+                if (result.dismiss === "cancel") {
+                  Swal.fire({
+                    title: `你還是先走吧!${name}`,
+                    text: `莎莉是隻雞`,
+                    confirmButtonText: "可...可惡",
+                    confirmButtonColor: "Crimson",
+                    allowOutsideClick: false,
+                    imageUrl: "img/sali-1.gif",
+                    imageHeight: 300
+                  }).then(result => {
+                    refresh();
+                  });
+                } else {
+                  Swal.fire({
+                    title: `我就知道你是愛我的,${name}`,
+                    allowOutsideClick: false,
+                    confirmButtonText: "我也愛你",
+                    confirmButtonColor: "Crimson",
+                    imageUrl: "img/sali-3.png",
+                    imageHeight: 300
+                  }).then(function() {
+                    Swal.fire({
+                      title: "常識題-2",
+                      text: "拉拉熊裡的牠是雞還是鴨",
+                      confirmButtonText: "我覺得是小黃雞",
+                      cancelButtonText: "我覺得是小黃鴨",
+                      showCancelButton: true,
+                      allowOutsideClick: false,
+                      imageUrl: "img/Kiiroitori-1.jpg",
+                      imageHeight: 300,
+                      confirmButtonColor: "Orange ",
+                      cancelButtonColor: "Orange "
+                    }).then(result => {
+                      if (result.dismiss == "cancel") {
+                        Swal.fire({
+                          //B
+                          title: "我難過",
+                          text: "我難過的是 放棄你 放棄愛放棄的夢被打碎 忍住悲哀",
+                          confirmButtonText: "可...可惡",
+                          confirmButtonColor: "Orange ",
+                          allowOutsideClick: false,
+                          imageUrl: "img/Kiiroitori-3.png",
+                          imageHeight: 300
+                        }).then(result => {
+                          refresh();
+                        });
+                      } else {
+                        Swal.fire({
+                          //G
+                          title: "Yeah,小黃雞愛你唷",
+                          allowOutsideClick: false,
+                          confirmButtonText: "這不是常識?",
+                          confirmButtonColor: "Orange ",
+                          imageUrl: "img/Kiiroitori-2.png",
+                          imageHeight: 300
+                        }).then(function() {
+                          Swal.fire({
+                            //lv3
+                            title: "常識題-3",
+                            text: "你猜我們兄弟有幾人",
+                            confirmButtonText: "小於五人",
+                            cancelButtonText: "大於五人",
+                            showCancelButton: true,
+                            allowOutsideClick: false,
+                            imageUrl: "img/06.jpg",
+                            imageHeight: 300,
+                            confirmButtonColor: "teal",
+                            cancelButtonColor: "teal"
+                          }).then(result => {
+                            if (result.dismiss !== "cancel") {
+                              Swal.fire({
+                                //B
+                                title: `欸不是!${name}`,
+                                confirmButtonText: "不相信!再一次",
+                                allowOutsideClick: false,
+                                imageUrl: "img/07.jpg",
+                                imageHeight: 300
+                              }).then(result => {
+                                refresh();
+                              });
+                            } else {
+                              Swal.fire({
+                                title: "但你知道我有8個兄弟嗎",
+                                allowOutsideClick: false,
+                                confirmButtonText: "當然!",
+                                confirmButtonColor: "teal",
+                                imageUrl: "img/08.jpg",
+                                imageHeight: 300
+                              }).then(function() {
+                                Swal.fire({
+                                  title: "良心題",
+                                  text:
+                                    "你剛掉了一支手機到湖裡,湖中女神問你是iphone11 Pro還是 iphone11",
+                                  confirmButtonText: "小孩子才選擇 我兩個都要",
+                                  cancelButtonText: "我沒有掉東西啊",
+                                  showCancelButton: true,
+                                  allowOutsideClick: false,
+                                  imageUrl: "img/09.jpg",
+                                  imageHeight: 300,
+                                  confirmButtonColor: "green",
+                                  cancelButtonColor: "green"
+                                }).then(result => {
+                                  if (result.dismiss !== "cancel") {
+                                    Swal.fire({
+                                      title: "不就跟你說是良心題了嗎",
+                                      confirmButtonText: "可..可惡",
+                                      confirmButtonColor: "green",
+                                      allowOutsideClick: false,
+                                      imageUrl: "img/10.jpg",
+                                      imageHeight: 300
+                                    }).then(result => {
+                                      refresh();
+                                    });
+                                  } else {
+                                    Swal.fire({
+                                      title: `${name}真是善良的孩子`,
+                                      allowOutsideClick: false,
+                                      confirmButtonColor: "green",
+                                      confirmButtonText: "我是阿",
+                                      imageUrl: "img/11.png",
+                                      imageHeight: 300
+                                    }).then(function() {
+                                      Swal.fire({
+                                        title: "惡魔題",
+                                        text: "深夜走在大街上,看到有兩個人影在巷子你覺得是?",
+                                        confirmButtonText: "有人跟蹤!快跑",
+                                        cancelButtonText: "ㄏㄏ嘿嘿嘿",
+                                        showCancelButton: true,
+                                        allowOutsideClick: false,
+                                        imageUrl: "img/12.jpg",
+                                        imageHeight: 300,
+                                        confirmButtonColor: "MidnightBlue",
+                                        cancelButtonColor: "MidnightBlue"
+                                      }).then(result => {
+                                        if (result.dismiss === "cancel") {
+                                          Swal.fire({
+                                            //B
+                                            title: "你忘了剛進入遊戲我說的?",
+                                            confirmButtonText: "可...可惡",
+                                            allowOutsideClick: false,
+                                            imageUrl: "img/03.jpg",
+                                            imageHeight: 300
+                                          }).then(result => {
+                                            refresh();
+                                          });
+                                        } else {
+                                          Swal.fire({
+                                            //G
+                                            text: "希望你不要打作者",
+                                            allowOutsideClick: false,
+                                            imageUrl: "img/03.jpg",
+                                            imageHeight: 300
+                                          }).then(result => {
+                                            refresh();
+                                          });
+                                        }
+                                      });
+                                    });
+                                  }
+                                });
+                              });
+                            }
+                          });
+                        });
+                      }
+                    });
+                  });
+                }
+              });
+            });
+          }
+        });
+      }
+      function refresh() {
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>
