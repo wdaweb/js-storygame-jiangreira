@@ -10,23 +10,29 @@
     <link rel="stylesheet" href="plugs/sweetalert2.min.css" />
     <script src="plugs/sweetalert2.all.min.js"></script>
     <script src="plugs/jquery-3.4.1.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ma+Shan+Zheng|Raleway&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
         font-family: "微軟正黑體";
-        height: 100vh;
+        height: 100%;
         text-align: center;
+        background: #1b180f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       #btn1 {
         background: teal;
         width: 400px;
         height: 100px;
-        margin: 10% auto;
+        margin: 20% auto;
         line-height: 100px;
         font-size: 4rem;
         color: white;
-
         border-radius: 20px;
-        border: 5px yellow;
       }
       #btn1:hover {
         box-shadow: 10px 15px 50px black;
@@ -34,11 +40,16 @@
       }
       .footer {
         position: absolute;
-        bottom: 5px;
-        left:40%;
-        right:40%;
-        font-size: 32px;
-        color: black;
+        bottom: 0px;
+        color: white;
+        font-size: 2rem;
+        font-family: "Ma Shan Zheng", cursive;
+        text-shadow: 3px 2px 1px black;
+      }
+      @media screen and (max-width: 800px) {
+        #btn1 {
+          margin: 50% auto;
+        }
       }
     </style>
   </head>
@@ -121,7 +132,7 @@
             }).then(function() {
               Swal.fire({
                 title: "常識題-1",
-                text: "莎莉是基還是鴨",
+                text: "莎莉是雞還是鴨",
                 confirmButtonText: "肯德雞",
                 cancelButtonText: "燒臘鴨",
                 showCancelButton: true,
